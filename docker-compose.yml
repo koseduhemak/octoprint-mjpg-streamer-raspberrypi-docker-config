@@ -1,0 +1,29 @@
+version: '3.3'
+
+services:
+  octoprint:
+    container_name: octoprint
+    restart: always
+    image: octoprint/octoprint
+    ports:
+      - 5000:5000
+    devices:
+     - /dev/ttyUSB0:/dev/ttyUSB0
+    volumes:
+     - /appdata/octoprint:/home/octoprint
+    links:
+     - mjpg-streamer:webcam
+
+  mjpg-streamer:
+    build:
+      context: ./mjpg-streamer-raspberrypi
+    container_name: mjpg-streamer
+    restart: always
+    image: koseduhemak/mjpg-streamer
+    environment:
+      - FPS=30
+      - RESOLUTION=1280x720
+    devices:
+      - /dev/video0:/dev/video0
+    ports:
+      - 8080:8080

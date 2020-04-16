@@ -1,6 +1,8 @@
-[submodule "octoprint-docker"]
-	path = octoprint-docker
-	url = https://github.com/OctoPrint/docker.git
 [submodule "mjpg-streamer-raspberrypi"]
 	path = mjpg-streamer-raspberrypi
 	url = git@github.com:koseduhemak/mjpg-streamer-raspberrypi.git
+	branch = master
+[submodule "octoprint-docker"]
+	path = octoprint-docker
+	url = https://github.com/OctoPrint/docker.git
+	branch = master
